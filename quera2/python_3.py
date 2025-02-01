@@ -1,14 +1,17 @@
 import string
-l1 = list(string.ascii_lowercase)
-l2 = list(string.ascii_uppercase)
 n = int(input())
-m = input()
-i = 0
-while i < len(m):
-    for value in 
+m = str(input())
+x = ""
 
+for char in m:
+    if char.isalpha():
+        start = ord('A') if char.isupper() else ord('a')
+        new_char = chr(start + ((ord(char) - start + n) % 26))
+        x += new_char
+    else:
+        x += char
 
-
-
-print(l1)
-print(l2)
+print(x)
+# print(l1)
+# print(l2)
+# print(m)
