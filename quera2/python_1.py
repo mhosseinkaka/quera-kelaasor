@@ -1,3 +1,5 @@
+from collections import Counter
+
 x = int(input("enter number of students: "))
 a = []
 for i in range(1, x + 1):
@@ -12,5 +14,14 @@ for value in a:
     elif value[-1] == "F":
         f.append(value[0])
 
-print(f)
-print(m)
+m.sort()
+f.sort()
+
+count_f = Counter(f)
+count_m = Counter(m)
+
+count_f_f = count_f.most_common(1)
+count_m_m = count_m.most_common(1)
+
+print(count_f_f[0][0])
+print(count_m_m[0][0])
