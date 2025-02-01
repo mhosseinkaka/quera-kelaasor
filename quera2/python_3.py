@@ -12,6 +12,3 @@ for char in m:
         x += char
 
 print(x)
-# print(l1)
-# print(l2)
-# print(m)
