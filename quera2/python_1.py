@@ -1,9 +1,9 @@
 from collections import Counter
 
-x = int(input("enter number of students: "))
+x = int(input())
 a = []
 for i in range(1, x + 1):
-    name = input("enter name: ")
+    name = input()
     a.append(name.split())
 
 m = []
