@@ -1,14 +1,15 @@
+from collections import Counter
+
+def rep(number):
+    rep_list = Counter(number)
+    result_1 = [i for i, count in rep_list.items() if count > 1]
+    result_2 = "\n".join(result_1)
+    return result_2
+
+final_list = []
 x = int(input())
-n = []
-for i in range(1, x + 1):
-    a = input()
-    n.insert(-1, a)
+for num in range(x):
+    list_num = input().split()
+    final_list.extend(list_num)
 
-seen = set()
-
-final_list = filter(lambda num: num in seen or seen.add(num), n)
-
-m = set(final_list)
-
-for value in m:
-    print(value)    
+print(rep(final_list))
