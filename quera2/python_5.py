@@ -1,7 +1,7 @@
 def child(kid):
     kid = list(kid)
     i = 0
-    while i < len(kid):
+    while i < len(kid) - 1:
         if kid[i] == "B" and kid[i + 1] == "G":
             kid[i], kid[i + 1] = kid[i + 1], kid[i]
             i += 1
