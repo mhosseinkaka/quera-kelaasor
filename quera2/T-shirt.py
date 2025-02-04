@@ -1,28 +1,30 @@
 def kelaasor_shirt(choice, list_shirt):
+    sizes = list(list_shirt.keys())
+    output = []
     for i in range(len(choice)):
-        
         key = choice[i]
-        if list_shirt[key] > 0:
+        if key in list_shirt and list_shirt[key] > 0:
             list_shirt[key] -= 1
-            print(list_shirt[key]) 
+            output.append(key) 
         else:
-            if  list_shirt[choice[i + 1]] > 0:
-                list_shirt[choice[i + 1]] -= 1
-                print(list_shirt[choice[i + 1]])
-            else:
-                if list_shirt[choice[i - 1]] > 0:
-                    list_shirt[choice[i - 1]] -= 1
-                    print(list_shirt[choice[i - 1]])
+            index = sizes.index(key) if key in sizes else -1
+            if index != -1:
+                for local in [1, -1, 2, -2]:
+                    new_index = index + local
+                    if 0 <= new_index < len(sizes):
+                        new_key = sizes[new_index]
+                        if new_key in list_shirt and list_shirt[new_key] > 0:
+                            list_shirt[new_key] -= 1
+                            output.append(new_key)
+                            break
                 else:
-                    if list_shirt[choice[i + 2]] > 0:
-                        list_shirt[choice[i + 2]] -= 1
-                        print(list_shirt[choice[i + 2]])
-                    else:
-                        if list_shirt[choice[i - 2]] > 0:
-                            list_shirt[choice[i - 2]] -= 1
-                            print(list_shirt[choice[i - 2]])
-                        else:
-                            list_shirt[key] = "No-Shirt"
+                    output.append("No-Shirt")
+            else:
+                    output.append("No-Shirt")
+    return output
+
+
+
 
 
 number_shirt = list(map(int, input().split()))
@@ -38,5 +40,5 @@ for i in range(person):
 # print(choice)
 
 result = kelaasor_shirt(choice, list_shirt)
-for key, value in result.items():
-    print(value)
+for res in result:
+    print(res)
