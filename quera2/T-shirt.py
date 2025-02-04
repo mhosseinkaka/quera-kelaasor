@@ -18,9 +18,9 @@ def kelaasor_shirt(choice, list_shirt):
                             output.append(new_key)
                             break
                 else:
-                    output.append("No-Shirt")
+                    output.append("No Shirt")
             else:
-                    output.append("No-Shirt")
+                    output.append("No Shirt")
     return output
 
 
