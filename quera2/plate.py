@@ -25,14 +25,13 @@ def find_range(list):
     return range_list
 
 def big(range_list):
+    if not range_list:
+        return 0
     big_range = max(range_list, key= lambda x:x[1] - x[0] + 1)
     max_one = big_range[1] - big_range[0] + 1
     return max_one
 
-m = []
-for num in list_plate:
-    if num == 1:
-        m.append(num)
-final_plate = len(m) + big(find_range(list_rev))
+ones = list_plate.count(1)
+final_plate = ones + big(find_range(list_rev))
 
 print(final_plate)
