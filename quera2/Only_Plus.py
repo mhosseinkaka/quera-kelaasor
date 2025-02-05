@@ -1,6 +1,6 @@
 def check(list1, list2):
     if len(list1) != len(list2):
-        return("nooooooooooo")
+        return "NO"
     diff = [list2[i] - list1[i] for i in range(len(list1))]
     
     if len(set(diff)) == 1:
@@ -10,7 +10,7 @@ def check(list1, list2):
         if diff[1] - diff[0] == diff[1]:
             return "YES" 
 
-    for i in range(1, len(diff)):
+    for i in range(1, len(diff) + 1):
         if diff[i] != diff[i - 1]:
             return "NO"
             
