@@ -29,4 +29,19 @@ class Student:
 
 
 
-git 
+
+# test_case_1
+s1 = Student("Alice", 90)  
+s2 = Student("Bob", 85)  
+s1.compare_grade(s2)
+
+
+# test_case_2
+s1 = Student("manochehr", 90)  
+s2 = Student("abid", 93)  
+s1.compare_grade(s2)
+
+# test_case_3
+s1 = Student("sara", 97)  
+s2 = Student("zahar", 97)  
+s1.compare_grade(s2)
