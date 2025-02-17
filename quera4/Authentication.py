@@ -3,13 +3,13 @@ from __future__ import annotations
 import hashlib
 class User:
     '''
-    این کلاس یک کاربر ایجاد میکند.
-    عملیت رمزنگاری را انجام میدهد.
-    عملیات مقایسه پسوردهای رمزنگاری شده را انجام میدهد
+    This class creates a user.
+    Performs encryption operations.
+    Performs comparison operations of encrypted passwords.
     '''
     def __init__(self, username, password):
         '''
-        یک ابجکت یوزر با ویژگی های نام کاربری و پسورد ساخته می شود
+        A user object is created with username and password properties.
         '''
         self.username = username
         self.password = self.hash_password(password)
@@ -22,48 +22,48 @@ class User:
 
     def hash_password(self, password):
         '''
-        پسورد وردی کاربر را رمزنگاری میکند
+        Encrypts user input password
         '''  
         return hashlib.sha256(password.encode()).hexdigest()
        
     def authenticate(self, password: str) -> bool:
         '''
-        پسورد جدید را رمزنگاری کرده و با پسورد قدیم مطابقت میدهد
+        Encrypts the new password and matches it with the old password.
         '''
         return self.password == self.hash_password(password)
 
 class Authentication:
     '''
-    این کلاس با استفاده از متدهایی که دارد، عملیات احراز هویت را انجام میدهد
+    This class performs authentication operations using its methods.
     '''
     def __init__(self):
         '''
-        لیست کاربران را ایجاد میکند
+        Creates a list of users.
         '''
         self.user_list = []
 
     def add_user(self, username: str, password: str) -> None:
         '''
-        با فراخوانی کلاس یوزر، یک کاربر جدید ایجاد شده و به لیست اضافه میگردد.
+        By calling the User class, a new user is created and added to the list.
         '''
         new_user = User(username, password)
         self.user_list.append(new_user)
 
     def user_exists(self, username: str) -> bool:
         '''
-        بررسی میکند این نام کاربری در لیست کاربران وجود دارد یا خیر
+        Checks if this username exists in the user list.
         '''
         return any(user.get_username() == username for user in self.user_list)
 
     def check_username(self, username: str) -> bool:
         '''
-        بررسی میکند این نام کاربری با کدام نام کاربری در لیست کاربران مطابقت دارد.
+        Checks which username this matches in the user list.
         '''
         return self.user_exists(username)
 
     def check_password(self, username: str, password: str) -> bool:
         '''
-        رمز عبور را میگیرد و بافراخوانی متد احراز هویت کلاس یوزر با پسورد رمزنگاری شده قدیم، صحبت پسورد را تایید میکند.
+        It takes the password and verifies the password by calling the authentication method of the User class with the old encrypted password.
         '''
         user = next((user for user in self.user_list if user.get_username() == username), None)
         if user is None:
@@ -72,7 +72,7 @@ class Authentication:
 
     def authenticate_user(self, username: str, password: str) -> bool:
         '''
-        نام کاربری و پسورد داده می شود و هر مرحله احراز هویت را با فراخوانی متد آن انجام میدهد و نتیجه را برمیگرداند
+        A username and password are given and each authentication step is performed by calling its method and returning the result.
         '''
         user_exists = self.user_exists(username)
         username_correct = self.check_username(username)
