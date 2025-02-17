@@ -6,6 +6,9 @@ class Book:
     The methods of this class take the name and title of the book as a string and create a book object.
     '''
     def __init__(self, title: str, author: str) -> None:
+        '''
+        Creates an object by taking the title and author.
+        '''
         self.title = title
         self.author = author
 
@@ -33,7 +36,7 @@ class Library:
         '''
         self.list_book = []
 
-    def add_book(self, title: str, author: str):
+    def add_book(self, title: str, author: str) -> Book:
         '''
         This method creates a new book by taking the title and author of the book and calling the Book method and adding it to our list.
         '''
