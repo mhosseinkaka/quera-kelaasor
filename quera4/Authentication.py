@@ -46,8 +46,7 @@ class Authentication:
         '''
         با فراخوانی کلاس یوزر، یک کاربر جدید ایجاد شده و به لیست اضافه میگردد.
         '''
-        hash_pass = User(username, password).hash_password(password)
-        new_user = User(username, hash_pass)
+        new_user = User(username, password)
         self.user_list.append(new_user)
 
     def user_exists(self, username: str) -> bool:
@@ -90,7 +89,7 @@ user_Authentication.add_user("Hamed", "kelaasor")
 
 print(user_Authentication.authenticate_user("Mohammad", "123456")) 
 
-print(user_Authentication.authenticate_user("Fariborz", "ffborz")) 
+print(user_Authentication.authenticate_user("Fariborz", "ffborze")) 
 
 print(user_Authentication.authenticate_user("Hamed", "kelaasor")) 
 
