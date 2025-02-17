@@ -7,6 +7,9 @@ class Student:
     3. This class has a method that performs the comparison.
     '''
     def __init__(self, name: str, grade: int):
+        '''
+        Creates an object by taking a name and a grade
+        '''
         assert type(name) == str, "enetr yor currect name"
         assert type(grade) == int, "enter your grade as a number"
         self.name = name
