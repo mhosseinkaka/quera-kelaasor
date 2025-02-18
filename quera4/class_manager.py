@@ -12,7 +12,7 @@ class Teacher:
     def set_teacher_name(self, name: str) -> None:
         self.name = name
 
-    def change_teacher_name(self, new_name: str) -> str:
+    def change_teacher_name(self, new_name: str) -> None:
         self.set_teacher_name(new_name)
 
 
@@ -28,17 +28,18 @@ class Student:
     def set_student_name(self, name: str) -> None:
         self.name = name
 
-    def change_student_name(self, new_name: str) -> str:
+    def change_student_name(self, new_name: str) -> None:
         self.set_student_name(new_name)
 
-    def add_score(self, score: int) -> list:
-        assert type(score) == int, "enter score as a int"
+    def add_score(self, score: float) -> None:
+        assert isinstance(score, (int, float)), "enter score as a number"
         self.list_score.append(score)
 
     def average(self) -> float:
-        len(self.list_score) = 1
-        final_score = sum(self.list_score)
-        return final_score / (len(self.list_score))
+        if len(self.list_score) == 1:
+            return 0
+        else:
+            return sum(self.list_score) / len(self.list_score)
         
 
 class Course:
@@ -54,8 +55,7 @@ class Course:
 
     def score_student(self):
         for student in self.list_student:
-            print(f"enter score {student.get_student_name()} :")
-            score = int(input())
+            score = float(input(print(f"enter score {student.get_student_name()} :")))
             student.add_score(score)
 
     def print_student(self):
